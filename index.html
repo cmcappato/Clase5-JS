@@ -4,9 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Semaforo</title>
+    <title>Semáforo</title>
+    <!-- Ejemplo de semáforo en HTML, CSS Y JavaScript -->
+    <style> 
+        .caja-semaforo{
+            width: 80px;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 25px;         
+            background-color: rgb(100, 20, 40);
+            margin: 0 auto;
+        }
+        .luz-semaforo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: gray;
+            border: 2px solid black;
+            padding: 10px;            
+            margin: 0 auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class = "caja-semaforo"> 
+        <div class="luz-semaforo" id="red"></div>
+        <div class="luz-semaforo" id="yellow"></div>
+        <div class="luz-semaforo" id="green"></div>
+    </div>
+    <script>    
+        function cambiarColorLuzSemaforo(id, prender)
+        {
+            var color = 'grey';
+            
+            if (prender == true) 
+            {
+                color = id;
+            }
+            document.getElementById(id).style.backgroundColor = color;           
+            
+            /*
+            document.querySelector('#' + id).style.backgroundColor = color;
+            */
+        }
+        cambiarColorLuzSemaforo('red', true);
+        cambiarColorLuzSemaforo('yellow', !true);
+        cambiarColorLuzSemaforo('green', !true);
+    </script>
 </body>
 </html>
