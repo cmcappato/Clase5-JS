@@ -6,31 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Semáforo</title>
     <!-- Ejemplo de semáforo en HTML, CSS Y JavaScript -->
-    <style> 
-        .caja-semaforo{
-            width: 80px;
-            padding: 10px;
-            border: 1px solid black;
-            border-radius: 25px;         
-            background-color: rgb(205, 190, 0);
-            margin: 0 auto;
-        }
-        .luz-semaforo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: gray;
-            border: 2px solid black;
-            padding: 10px;            
-            margin: 0 auto;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-        .central{
-            text-align: center;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/main.js"></script>    
 </head>
 <body>
     <div class = "caja-semaforo"> 
@@ -38,73 +15,11 @@
         <div class="luz-semaforo" id="yellow"></div>
         <div class="luz-semaforo" id="green"></div>
     </div>
-
-    <div class="central">
-    <button onclick="onClickBotonCambiar()">Manual</button>
+    <div class = "centrar" >
+    <button id = "btn-Automatico" onclick="onClickBotonAuto()"></button>
     </div>
-    
-
-    <script>    
-        function cambiarColorLuzSemaforo(id, prender)
-        {
-            var color = 'grey';
-            
-            if (prender == true) 
-            {
-                color = id;
-            }
-            document.getElementById(id).style.backgroundColor = color;           
-            
-            /*
-            document.querySelector('#' + id).style.backgroundColor = color;
-            */
-        }
-        
-        cambiarColorLuzSemaforo('red', !true);
-        cambiarColorLuzSemaforo('yellow', !true);
-        cambiarColorLuzSemaforo('green', !true);
-
-        var estado = 0;
-         
-        
-        function onClickBotonCambiar()
-        {          
-            console.log(estado);
-            switch(estado)
-            {
-                case 0:                
-                    cambiarColorLuzSemaforo('red', true);
-                    cambiarColorLuzSemaforo('yellow', !true);
-                    cambiarColorLuzSemaforo('green', !true);
-                    //estado++;
-                    break;
-                case 1:                
-                    cambiarColorLuzSemaforo('red', true);
-                    cambiarColorLuzSemaforo('yellow', true);
-                    cambiarColorLuzSemaforo('green', !true);
-                    //estado++;                   
-                    break;  
-                case 2:                
-                    cambiarColorLuzSemaforo('red', !true);
-                    cambiarColorLuzSemaforo('yellow', !true);
-                    cambiarColorLuzSemaforo('green', true);
-                    //estado++;                    
-                    break;
-                case 3:                
-                    cambiarColorLuzSemaforo('red', !true);
-                    cambiarColorLuzSemaforo('yellow', true);
-                    cambiarColorLuzSemaforo('green', !true);                        //estado = 0; 
-                    break;
-                default:
-                    cambiarColorLuzSemaforo('red', !true);
-                    cambiarColorLuzSemaforo('yellow', !true);
-                    cambiarColorLuzSemaforo('green', !true);                      
-                    break;
-            }
-            estado++;
-            estado&=3;
-           //console.log('Evento boton cambiar ' + estado++);
-        }
-    </script>
+    <div class = "centrar" id = "btn-Cambiar">
+    <button onclick="onClickBotonCambiar()">MANUAL</button>
+    </div>
 </body>
 </html>
